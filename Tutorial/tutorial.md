@@ -22,7 +22,7 @@ This will start the process of generating risk values.
 
 # Step Four - Results
 
-Once the calculation has been completed you should be brought to the Results tab. This tab will show a data table at the top which displays your sample names on the left and their risk vaules on the right. 
+Once the calculation has been completed you should be brought to the Results tab. This tab will show a data table at the top which displays your sample names on the left and their risk values on the right. 
 
 ![Risk Values](risk_values.png)  
 
