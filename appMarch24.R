@@ -6,11 +6,14 @@ ui <- shiny::fluidPage(
   #Loading bar
   useAttendant(),
   #Dashboard looks etc
-  dashboardPage(dashboardHeader(title= "", dropdownMenuOutput("messageMenu")), 
+  dashboardPage(
+    skin = "blue",
+    dashboardHeader(title= "", dropdownMenuOutput("messageMenu")), 
                 dashboardSidebar(
                   #logo
                   # (img(src='Free_Sample_By_Wix (5).jpg', align = "center")),
-                  (img(src='Free_Sample_By_Wix%20(5).jpg', align = "center")),
+                  #(img(src='Free_Sample_By_Wix%20(5).jpg', align = "center")),
+                  (img(src='mrt_risk_calculatorSMALL.png', align = "center")),
                   #uploading idat
                   h2("Step 1"),
                   fileInput(
@@ -92,6 +95,7 @@ ui <- shiny::fluidPage(
                                             title = "Risk Values",
                                             status = "info",
                                             solidHeader = TRUE,
+                                            collapsible = TRUE,
                                             DTOutput('Mval')
                                           ))),
                                         (fluidRow(
@@ -99,12 +103,13 @@ ui <- shiny::fluidPage(
                                             title = "Risk plot", 
                                             status = "warning", 
                                             solidHeader = TRUE,
-                                            collapsible = FALSE,
+                                            collapsible = TRUE,
                                             plotOutput("figure")),
                                           box(
                                             title = "Selections",
                                             status = "success",
                                             solidHeader = TRUE,
+                                            collapsible = TRUE,
                                             h3("Metagene Set:"),
                                             textOutput("metagenechoice"),
                                             h3("Sample Selected:"),
@@ -112,7 +117,18 @@ ui <- shiny::fluidPage(
                                             h3("Patient's Risk Percentile:"),
                                             textOutput("percentages")
                                           ))
-                                        )),
+                                        ),
+                                        (fluidRow(
+                                          box(
+                                            width = 12,
+                                            title = "Summary",
+                                            status = "success",
+                                            solidHeader = TRUE,
+                                            collapsible = TRUE,
+                                            #includeMarkdown("./AppExtraFiles/ResultsSummary.md")
+                                          )
+                                        ))
+                                        ),
                                
                                #Download Tab
                                tabPanel("Download",
